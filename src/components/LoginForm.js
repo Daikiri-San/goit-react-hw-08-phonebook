@@ -168,7 +168,7 @@ function LoginForm({ notice, apearNotice, theme, logIn }) {
             </Label>
 
             <Button type="submit" disabled={isSubmitting}>
-              Registrate
+              Login
             </Button>
           </Form>
         )}
