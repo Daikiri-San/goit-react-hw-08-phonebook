@@ -1,7 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Formik } from 'formik';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import withThemeContext from './hoc/withTheme';
+import routesPaths from '../routesPaths';
 import Notification from './Notification';
 
 const Form = styled.form`
@@ -48,7 +51,7 @@ const Input = styled.input`
     `}
 `;
 
-const Button = styled.button`
+const MyButton = styled.button`
   display: block;
   font-size: 2rem;
   margin: 2rem auto 0;
@@ -78,6 +81,21 @@ const ErrorText = styled.div`
   font-size: 2rem;
   margin-top: -2rem;
   margin-bottom: 2rem;
+`;
+
+const MyLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const ButtonContainer = styled.div`
+  display: inline-block;
+  margin: 2rem auto 0;
+`;
+
+const StyledButton = styled(Button)`
+  width: 10rem;
+  height: 4rem;
+  font-size: 3rem;
 `;
 
 function LoginForm({ notice, apearNotice, theme, logIn }) {
@@ -167,9 +185,20 @@ function LoginForm({ notice, apearNotice, theme, logIn }) {
               />
             </Label>
 
-            <Button type="submit" disabled={isSubmitting}>
+            <MyButton type="submit" disabled={isSubmitting}>
               Login
-            </Button>
+            </MyButton>
+            <ButtonContainer>
+              <MyLink to={routesPaths.register}>
+                <StyledButton
+                  type="button"
+                  variant="contained"
+                  color="secondary"
+                >
+                  Sign Up
+                </StyledButton>
+              </MyLink>
+            </ButtonContainer>
           </Form>
         )}
       </Formik>

@@ -7,8 +7,13 @@ import { authSelectors } from '../redux/auth';
 import routes from '../routes';
 
 const Nav = styled.nav`
+  width: 100%;
   padding: 2rem 4rem;
   display: flex;
+`;
+
+const LinkContainer = styled.div`
+  margin-left: auto;
 `;
 
 const NavItem = styled(NavLink).attrs(props => ({
@@ -48,18 +53,20 @@ function Navigation({ theme, isAuthenticated }) {
           {route.label}
         </NavItem>
       ))}
-      {isAuthenticated
-        ? privateOnly.map(route => (
-            <NavItem
-              exact={route.exact}
-              key={route.label}
-              to={route.path}
-              color={theme.config.messageColor}
-            >
-              {route.label}
-            </NavItem>
-          ))
-        : publicOnly.map(route => (
+      {isAuthenticated ? (
+        privateOnly.map(route => (
+          <NavItem
+            exact={route.exact}
+            key={route.label}
+            to={route.path}
+            color={theme.config.messageColor}
+          >
+            {route.label}
+          </NavItem>
+        ))
+      ) : (
+        <LinkContainer>
+          {publicOnly.map(route => (
             <NavItem
               exact={route.exact}
               key={route.label}
@@ -69,6 +76,8 @@ function Navigation({ theme, isAuthenticated }) {
               {route.label}
             </NavItem>
           ))}
+        </LinkContainer>
+      )}
     </Nav>
   );
 }
