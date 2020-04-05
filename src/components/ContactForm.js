@@ -58,6 +58,7 @@ const Button = styled.button`
   background-color: #1d2bcc;
   cursor: pointer;
   color: snow;
+  transition: all 0.2s ease;
 
   &:hover,
   &:focus {

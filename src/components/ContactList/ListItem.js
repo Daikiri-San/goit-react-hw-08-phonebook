@@ -37,6 +37,7 @@ const Button = styled.button`
   background-color: #e82a2a;
   cursor: pointer;
   color: snow;
+  transition: all 0.2s ease;
 
   &:hover,
   &:focus {

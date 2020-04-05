@@ -29,7 +29,7 @@ const User = styled.span`
   font-weight: 700;
   margin-right: 1.2rem;
   margin-bottom: 0.2rem;
-  color: ${props => props.color};
+  color: #333333;
 
   &:last-of-type {
     margin-bottom: 3rem;
@@ -40,8 +40,8 @@ const Profile = ({ avatar, name, onDelete, email, theme }) => {
   return (
     <Container shadow={theme.config.mainShadowBox}>
       <Avatar src={avatar} />
-      <User color={theme.config.messageColor}>{name}</User>
-      <User color={theme.config.messageColor}>{email}</User>
+      <User>{name}</User>
+      <User>{email}</User>
       <Modal onAccept={onDelete} text="Delete Account" />
     </Container>
   );
