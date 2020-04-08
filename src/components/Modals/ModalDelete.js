@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Modal } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const ModalContainer = styled.div`
   padding: 3rem 2.2rem;
@@ -27,11 +28,13 @@ const ModalText = styled.p`
 `;
 
 const Button = styled.button`
-  display: block;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   font-size: 1.6rem;
   margin: 1.4rem auto 0;
-  width: 14rem;
-  padding: 1.4rem;
+  width: 17rem;
+  padding: 1rem 1.2rem;
   border: none;
   border-radius: 1rem;
   background-color: red;
@@ -100,6 +103,7 @@ class ModalWindow extends Component {
           onClick={this.handleOpen}
         >
           {text}
+          <DeleteIcon fontSize="large" />
         </Button>
         <Modal
           open={isModalOpen}
