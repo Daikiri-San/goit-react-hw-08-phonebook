@@ -1,13 +1,16 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Formik } from 'formik';
+import Modal from './Modals/ModalAddContact';
 import Notification from './Notification';
 
+const Container = styled.div`
+  position: relative;
+`;
+
 const Form = styled.form`
-  margin-bottom: 3.4rem;
-  max-width: 54rem;
-  box-shadow: ${props => props.shadow};
-  padding: 1.4rem 1.6rem;
+  max-width: 46rem;
+  padding: 0 3.6rem 2.6rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -15,7 +18,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
-  font-size: 2.4rem;
+  font-size: 2rem;
   cursor: pointer;
   ${props =>
     props.error &&
@@ -25,10 +28,10 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 1.4rem 1.2rem 1.2rem;
+  padding: 1.2rem 1rem 1rem;
   border-radius: 0.6rem;
   background-color: ${props => props.backGroundColor};
 
@@ -50,10 +53,10 @@ const Input = styled.input`
 
 const Button = styled.button`
   display: block;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 0 auto;
-  width: 70%;
-  padding: 1.8rem;
+  width: 60%;
+  padding: 1.6rem;
   border-radius: 1rem;
   background-color: #1d2bcc;
   cursor: pointer;
@@ -83,94 +86,96 @@ const ErrorText = styled.div`
 
 function ContactForm({ notice, apearNotice, hasError, theme, addContact }) {
   return (
-    <>
+    <Container>
       <Notification message={notice} apearNotice={apearNotice} />
       {hasError && <Notification message={hasError} apearNotice={true} />}
-      <Formik
-        initialValues={{ name: '', number: '' }}
-        validate={values => {
-          const errors = {};
-          if (!values.name) {
-            errors.name = <ErrorText>Name is Required</ErrorText>;
-          }
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          addContact(values.name, values.number);
-          setSubmitting(false);
-          resetForm();
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
-          <Form onSubmit={handleSubmit} shadow={theme.config.mainShadowBox}>
-            {errors.name ? (
-              <Label error>
-                Name
+      <Modal onAccept={addContact} text="Add Contact">
+        <Formik
+          initialValues={{ name: '', number: '' }}
+          validate={values => {
+            const errors = {};
+            if (!values.name) {
+              errors.name = <ErrorText>Name is Required</ErrorText>;
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting, resetForm }) => {
+            addContact(values.name, values.number);
+            setSubmitting(false);
+            resetForm();
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <Form onSubmit={handleSubmit}>
+              {errors.name ? (
+                <Label error>
+                  Name
+                  <Input
+                    error
+                    type="text"
+                    name="name"
+                    backGroundColor={theme.config.inputColor}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.name}
+                  />
+                  {errors.name && touched.name && errors.name}
+                </Label>
+              ) : (
+                <Label>
+                  Name
+                  {touched.name ? (
+                    <Input
+                      isValid
+                      type="text"
+                      name="name"
+                      backGroundColor={theme.config.inputColor}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.name}
+                    />
+                  ) : (
+                    <Input
+                      type="text"
+                      name="name"
+                      backGroundColor={theme.config.inputColor}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.name}
+                    />
+                  )}
+                  {errors.name && touched.name && errors.name}
+                </Label>
+              )}
+
+              <Label>
+                Number
                 <Input
-                  error
-                  type="text"
-                  name="name"
+                  type="tel"
+                  name="number"
                   backGroundColor={theme.config.inputColor}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.name}
+                  value={values.number}
                 />
-                {errors.name && touched.name && errors.name}
+                {errors.number && touched.number && errors.number}
               </Label>
-            ) : (
-              <Label>
-                Name
-                {touched.name ? (
-                  <Input
-                    isValid
-                    type="text"
-                    name="name"
-                    backGroundColor={theme.config.inputColor}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.name}
-                  />
-                ) : (
-                  <Input
-                    type="text"
-                    name="name"
-                    backGroundColor={theme.config.inputColor}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.name}
-                  />
-                )}
-                {errors.name && touched.name && errors.name}
-              </Label>
-            )}
-
-            <Label>
-              Number
-              <Input
-                type="tel"
-                name="number"
-                backGroundColor={theme.config.inputColor}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.number}
-              />
-              {errors.number && touched.number && errors.number}
-            </Label>
-            <Button type="submit" disabled={isSubmitting}>
-              Add contact
-            </Button>
-          </Form>
-        )}
-      </Formik>
-    </>
+              <Button type="submit" disabled={isSubmitting}>
+                Add contact
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Modal>
+    </Container>
   );
 }
 

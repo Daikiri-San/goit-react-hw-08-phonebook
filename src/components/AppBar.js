@@ -9,7 +9,7 @@ import Navigation from './Navigation';
 const Header = styled.header`
   width: 100%;
   box-shadow: ${props => props.shadow};
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
   display: flex;
 `;
 

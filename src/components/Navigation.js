@@ -4,16 +4,18 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import withThemeContext from './hoc/withTheme';
 import { authSelectors } from '../redux/auth';
+import ThemeSwitcher from './ThemeSwitcher';
 import routes from '../routes';
 
 const Nav = styled.nav`
   width: 100%;
   padding: 2rem 4rem;
   display: flex;
+  justify-content: flex-start;
 `;
 
 const LinkContainer = styled.div`
-  margin-left: auto;
+  justify-self: flex-end;
 `;
 
 const NavItem = styled(NavLink).attrs(props => ({
@@ -22,7 +24,8 @@ const NavItem = styled(NavLink).attrs(props => ({
     color: 'tomato',
   },
 }))`
-  font-size: 3rem;
+  font-size: 2.6rem;
+  font-family: 'Philosopher', sans-serif;
   font-weight: 500;
   text-decoration: none;
   color: ${props => props.color};
@@ -53,7 +56,7 @@ function Navigation({ theme, isAuthenticated }) {
           {route.label}
         </NavItem>
       ))}
-      {isAuthenticated ? (
+      {isAuthenticated &&
         privateOnly.map(route => (
           <NavItem
             exact={route.exact}
@@ -63,8 +66,9 @@ function Navigation({ theme, isAuthenticated }) {
           >
             {route.label}
           </NavItem>
-        ))
-      ) : (
+        ))}
+      <ThemeSwitcher />
+      {!isAuthenticated && (
         <LinkContainer>
           {publicOnly.map(route => (
             <NavItem

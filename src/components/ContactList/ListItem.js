@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Item = styled.li`
-  max-width: 54rem;
   box-shadow: ${props => props.shadow};
-  padding: 1.8rem;
+  padding: 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,12 +17,12 @@ const Item = styled.li`
 `;
 
 const Name = styled.p`
-  font-size: 2rem;
+  font-size: 1.8rem;
   flex-basis: 52%;
 `;
 
 const Number = styled.p`
-  font-size: 2rem;
+  font-size: 1.8rem;
   flex-basis: 36%;
 `;
 
@@ -33,6 +32,7 @@ const Button = styled.button`
   font-size: 3rem;
   flex-basis: 8%;
   height: 3.8rem;
+  width: 3.8rem;
   border-radius: 0.4rem;
   background-color: #e82a2a;
   cursor: pointer;

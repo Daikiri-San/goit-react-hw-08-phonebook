@@ -4,10 +4,10 @@ import { CSSTransition } from 'react-transition-group';
 import scaleTransition from './transitions/scale.module.css';
 
 const Container = styled.div`
-  margin-bottom: 3rem;
-  max-width: 54rem;
+  margin: 0 auto 3rem;
+  max-width: 48rem;
   box-shadow: ${props => props.shadow};
-  padding: 1.4rem 1.6rem;
+  padding: 2rem;
   background-color: snow;
 `;
 
@@ -17,10 +17,10 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   width: 100%;
-  margin-top: 0.4rem;
-  padding: 1.4rem 1.2rem 1.2rem;
+  margin-top: 0.2rem;
+  padding: 1.2rem 1rem 1rem;
   border-radius: 0.6rem;
   background-color: ${props => props.backGroundColor};
 

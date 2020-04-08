@@ -1,16 +1,15 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Formik } from 'formik';
-import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import withThemeContext from './hoc/withTheme';
 import routesPaths from '../routesPaths';
 import Notification from './Notification';
 
 const Form = styled.form`
-  max-width: 54rem;
+  max-width: 46rem;
   box-shadow: ${props => props.shadow};
-  padding: 1.4rem 1.6rem;
+  padding: 3.6rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -18,7 +17,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
-  font-size: 2.4rem;
+  font-size: 2rem;
   cursor: pointer;
   ${props =>
     props.error &&
@@ -28,10 +27,10 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 1.4rem 1.2rem 1.2rem;
+  padding: 1.2rem 1rem 1rem;
   border-radius: 0.6rem;
   background-color: ${props => props.backGroundColor};
 
@@ -51,14 +50,15 @@ const Input = styled.input`
     `}
 `;
 
-const MyButton = styled.button`
+const Button = styled.button`
   display: block;
-  font-size: 2rem;
-  margin: 2rem auto 0;
-  width: 70%;
-  padding: 1.8rem;
+  font-size: 1.8rem;
+  margin: 1.4rem auto 0;
+  width: 14rem;
+  padding: 1.6rem;
+  border: none;
   border-radius: 1rem;
-  background-color: #1d2bcc;
+  background-color: #4a69cf;
   cursor: pointer;
   color: snow;
   transition: all 0.2s ease;
@@ -67,7 +67,6 @@ const MyButton = styled.button`
   &:focus {
     background-color: #404fff;
     color: snow;
-    border-color: #404fff;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
     outline: none;
   }
@@ -85,18 +84,24 @@ const ErrorText = styled.div`
 `;
 
 const MyLink = styled(Link)`
-  text-decoration: none;
+  color: #1d2bcc;
+  transition: color 0.2s linear;
+  font-size: 2.2rem;
+  font-family: 'Philosopher', sans-serif;
+
+  &:hover,
+  &:focus {
+    color: tomato;
+  }
+
+  &:active {
+    color: red;
+  }
 `;
 
-const ButtonContainer = styled.div`
+const LinkContainer = styled.div`
   display: inline-block;
   margin: 2rem auto 0;
-`;
-
-const StyledButton = styled(Button)`
-  width: 10rem;
-  height: 4rem;
-  font-size: 3rem;
 `;
 
 function LoginForm({ notice, apearNotice, theme, logIn }) {
@@ -186,20 +191,12 @@ function LoginForm({ notice, apearNotice, theme, logIn }) {
               />
             </Label>
 
-            <MyButton type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
               Login
-            </MyButton>
-            <ButtonContainer>
-              <MyLink to={routesPaths.register}>
-                <StyledButton
-                  type="button"
-                  variant="contained"
-                  color="secondary"
-                >
-                  Sign Up
-                </StyledButton>
-              </MyLink>
-            </ButtonContainer>
+            </Button>
+            <LinkContainer>
+              <MyLink to={routesPaths.register}>Sign Up</MyLink>
+            </LinkContainer>
           </Form>
         )}
       </Formik>

@@ -6,13 +6,18 @@ import TextNotification from '../TextNotification';
 import ListItem from './ListItemContainer';
 import slideItemTransition from '../transitions/slideItem.module.css';
 
+const Container = styled.div`
+  margin: 1rem auto 0;
+  max-width: 48rem;
+`;
+
 const List = styled.ul`
   margin-bottom: 3rem;
 `;
 
 function ContactList({ contacts, visibleContacts, appear }) {
   return (
-    <>
+    <Container>
       <TransitionGroup component={List}>
         {visibleContacts.map(({ id }) => (
           <CSSTransition
@@ -32,7 +37,7 @@ function ContactList({ contacts, visibleContacts, appear }) {
       {contacts.length > 1 && visibleContacts.length === 0 && (
         <TextNotification message={'No contacts found :('} />
       )}
-    </>
+    </Container>
   );
 }
 

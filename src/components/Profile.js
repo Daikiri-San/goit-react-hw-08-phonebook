@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../redux/auth';
 import withThemeContext from './hoc/withTheme';
-import Modal from './Modal';
+import Modal from './Modals/ModalDelete';
 
 const Container = styled.div`
   box-shadow: ${props => props.shadow};
