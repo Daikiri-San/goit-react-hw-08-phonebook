@@ -15,7 +15,7 @@ const ModalContainer = styled.div`
 
 const ButtonAdd = styled.button`
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   position: absolute;
   top: 1rem;
   left: -12rem;
