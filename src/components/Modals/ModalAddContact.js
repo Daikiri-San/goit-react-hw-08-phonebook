@@ -49,7 +49,6 @@ const CloseButton = styled.button`
   flex-basis: 8%;
   height: 3.8rem;
   width: 3.8rem;
-  border-radius: 0.4rem;
   background-color: #e82a2a;
   cursor: pointer;
   color: snow;

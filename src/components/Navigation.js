@@ -16,6 +16,7 @@ const Nav = styled.nav`
 
 const LinkContainer = styled.div`
   justify-self: flex-end;
+  padding-left: 2rem;
 `;
 
 const NavItem = styled(NavLink).attrs(props => ({
