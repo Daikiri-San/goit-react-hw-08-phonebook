@@ -20,7 +20,7 @@ const Avatar = styled.img.attrs({
 `;
 
 const User = styled.span`
-  max-width: 16rem;
+  max-width: 20rem;
   font-size: 2rem;
   font-weight: 700;
   color: ${props => props.color};
