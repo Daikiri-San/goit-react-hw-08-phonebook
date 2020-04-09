@@ -44,7 +44,7 @@ const HomePage = ({ theme, isAuthenticated }) => (
       :) To begin you need to click
     </Greetings>
     {isAuthenticated ? (
-      <Greetings>
+      <Greetings color={theme.config.messageColor}>
         {' '}
         <MyLink to={routesPaths.contacts} color={theme.config.linkColor}>
           Contacts
