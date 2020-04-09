@@ -20,7 +20,39 @@ const Text = styled.p`
   font-size: 3rem;
 `;
 
-function Notification({ message, apearNotice }) {
+const Button = styled.button`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.8rem;
+  width: 17rem;
+  margin: 0 auto 1rem;
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #4a69cf;
+  cursor: pointer;
+  color: snow;
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #404fff;
+    color: snow;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    outline: none;
+  }
+
+  &:active {
+    background-color: #7883ff;
+  }
+`;
+
+function Notification({ message, apearNotice, serverError }) {
+  const reboot = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
   return (
     <CSSTransition
       timeout={250}
@@ -29,7 +61,15 @@ function Notification({ message, apearNotice }) {
       unmountOnExit
     >
       <Container>
-        <Text>{message}</Text>
+        {message && <Text>{message}</Text>}
+        {serverError && (
+          <>
+            <Text>
+              There are some server issue, please click on this button:
+            </Text>{' '}
+            <Button onClick={reboot}>Full Reboot Page</Button>{' '}
+          </>
+        )}
       </Container>
     </CSSTransition>
   );
