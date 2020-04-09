@@ -37,7 +37,40 @@ const MyLink = styled(Link)`
   }
 `;
 
+const Button = styled.button`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-left: auto;
+  margin-top: 4rem;
+  width: 17rem;
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: red;
+  cursor: pointer;
+  color: snow;
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #f02222;
+    color: snow;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    outline: none;
+  }
+
+  &:active {
+    background-color: tomato;
+  }
+`;
+
 const HomePage = ({ theme, isAuthenticated }) => {
+  const reboot = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
   return (
     <Container>
       <Greetings color={theme.config.messageColor}>
@@ -64,6 +97,7 @@ const HomePage = ({ theme, isAuthenticated }) => {
           </MyLink>
         </Greetings>
       )}
+      <Button onClick={reboot}>Full Reboot Page</Button>
     </Container>
   );
 };
@@ -73,3 +107,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(withThemeContext(HomePage));
+
+// , { onLogout: authOperations.logOut }
