@@ -6,10 +6,11 @@ import slideNoticeTransition from './transitions/slideNotice.module.css';
 const Container = styled.div`
   background-color: red;
   border-radius: 0.8rem;
+  max-width: 26rem;
   position: fixed;
-  top: 5rem;
+  top: 8rem;
   right: 0;
-  z-index: 20;
+  z-index: 4000;
 `;
 
 const Text = styled.p`
@@ -17,7 +18,7 @@ const Text = styled.p`
   margin: 0 auto;
   color: snow;
   padding: 1.4rem;
-  font-size: 3rem;
+  font-size: 2.2rem;
 `;
 
 const Button = styled.button`

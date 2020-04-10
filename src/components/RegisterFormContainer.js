@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import withThemeContext from './hoc/withTheme';
-import authOperations from '../redux/auth/authOperations';
+import { authOperations, authSelectors } from '../redux/auth';
 import RegisterForm from './RegisterForm';
+
+let AnimationStartID;
+let AnimationEndID;
 
 class RegisterFormContainer extends Component {
   state = {
     apearNotice: false,
     notice: null,
   };
+
+  componentWillUnmount() {
+    clearTimeout(AnimationStartID);
+    clearTimeout(AnimationEndID);
+  }
 
   register = (name, email, password) => {
     const { onRegister } = this.props;
@@ -31,8 +39,27 @@ class RegisterFormContainer extends Component {
       email,
       password,
     };
+    this.errorOnLog();
     onRegister(newUser);
   };
+
+  errorOnLog = () => {
+    AnimationStartID = setTimeout(
+      () =>
+        this.setState({
+          apearNotice: true,
+        }),
+      1000,
+    );
+    AnimationEndID = setTimeout(
+      () =>
+        this.setState({
+          apearNotice: false,
+        }),
+      5600,
+    );
+  };
+
   render() {
     return (
       <RegisterForm
@@ -45,11 +72,15 @@ class RegisterFormContainer extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  hasError: authSelectors.getError(state),
+});
+
 const mapDispatchToProps = {
   onRegister: authOperations.register,
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(withThemeContext(RegisterFormContainer));

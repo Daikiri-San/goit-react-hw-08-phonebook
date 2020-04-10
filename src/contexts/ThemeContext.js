@@ -32,6 +32,7 @@ class ThemeContext extends Component {
       config:
         config === themeConfig.light ? themeConfig.dark : themeConfig.light,
     });
+    window.localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark');
   };
 
   state = {
@@ -39,6 +40,18 @@ class ThemeContext extends Component {
     toggleTheme: this.toggleTheme,
     config: themeConfig.light,
   };
+
+  componentDidMount() {
+    if (window.localStorage.getItem('theme')) {
+      const currentTheme = window.localStorage.getItem('theme');
+      this.setState({
+        theme: currentTheme,
+        config: themeConfig[currentTheme],
+      });
+    } else {
+      window.localStorage.setItem('theme', 'light');
+    }
+  }
 
   render() {
     const { children } = this.props;

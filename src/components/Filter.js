@@ -17,6 +17,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  outline: none;
   font-size: 1.8rem;
   width: 100%;
   margin-top: 0.2rem;

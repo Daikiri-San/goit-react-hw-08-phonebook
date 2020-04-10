@@ -17,6 +17,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
+  position: relative;
   font-size: 2rem;
   cursor: pointer;
   ${props =>
@@ -27,11 +28,13 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  outline: none;
   font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
   padding: 1.2rem 1rem 1rem;
   border-radius: 0.6rem;
+  border: 0.2rem solid '#e0e0e0';
   background-color: ${props => props.backGroundColor};
 
   &:focus {
@@ -41,12 +44,12 @@ const Input = styled.input`
   ${props =>
     props.isValid &&
     css`
-      border: 0.3rem solid lightgreen;
+      border: 0.2rem solid lightgreen;
     `}
   ${props =>
     props.error &&
     css`
-      border: 0.3rem solid red;
+      border: 0.2rem solid red;
     `}
 `;
 
@@ -77,10 +80,10 @@ const Button = styled.button`
 `;
 
 const ErrorText = styled.div`
+  position: absolute;
+  top: 7.2rem;
   color: red;
-  font-size: 2rem;
-  margin-top: -2rem;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
 `;
 
 const MyLink = styled(Link)`
@@ -104,10 +107,19 @@ const LinkContainer = styled.div`
   margin: 2rem auto 0;
 `;
 
-function LoginForm({ notice, apearNotice, theme, logIn }) {
+function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {
   return (
     <>
       <Notification message={notice} apearNotice={apearNotice} />
+      {hasError && hasError.includes('400') && (
+        <Notification
+          message="Sorry, but it seems that email or password was written incorrect 😞"
+          apearNotice={apearNotice}
+        />
+      )}
+      {hasError && hasError.includes('401') && (
+        <Notification serverError={true} apearNotice={true} />
+      )}
       <Formik
         initialValues={{ email: '', password: '' }}
         validate={values => {

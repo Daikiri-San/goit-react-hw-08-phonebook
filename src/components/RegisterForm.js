@@ -18,6 +18,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
+  position: relative;
   font-size: 2rem;
   cursor: pointer;
   ${props =>
@@ -28,11 +29,13 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  outline: none;
   font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
   padding: 1.2rem 1rem 1rem;
   border-radius: 0.6rem;
+  border: 0.2rem solid '#e0e0e0';
   background-color: ${props => props.backGroundColor};
 
   &:focus {
@@ -42,12 +45,12 @@ const Input = styled.input`
   ${props =>
     props.isValid &&
     css`
-      border: 0.3rem solid lightgreen;
+      border: 0.2rem solid lightgreen;
     `}
   ${props =>
     props.error &&
     css`
-      border: 0.3rem solid red;
+      border: 0.2rem solid red;
     `}
 `;
 
@@ -77,11 +80,11 @@ const Button = styled.button`
   }
 `;
 
-const ErrorText = styled.p`
+const ErrorText = styled.div`
+  position: absolute;
+  top: 7.2rem;
   color: red;
-  font-size: 2rem;
-  margin-top: -2rem;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
 `;
 
 const HelpText = styled.span`
@@ -109,10 +112,19 @@ const MyLink = styled(Link)`
   }
 `;
 
-function RegisterForm({ notice, apearNotice, theme, registrate }) {
+function RegisterForm({ notice, apearNotice, theme, registrate, hasError }) {
   return (
     <>
       <Notification message={notice} apearNotice={apearNotice} />
+      {hasError && hasError.includes('400') && (
+        <Notification
+          message="Sorry, but it seems that name or email is already signed up 😞 choose another one"
+          apearNotice={apearNotice}
+        />
+      )}
+      {hasError && hasError.includes('401') && (
+        <Notification serverError={true} apearNotice={true} />
+      )}
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         validate={values => {

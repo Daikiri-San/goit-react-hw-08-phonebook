@@ -21,9 +21,6 @@ const Container = styled.div`
 const Layout = ({ children, theme, hasError, isLoading }) => (
   <Background color={theme.config.mainBGColor}>
     {isLoading && <Spinner />}
-    {hasError && !hasError.includes('401') && (
-      <Notification message={hasError} apearNotice={true} />
-    )}
     {hasError && hasError.includes('401') && (
       <Notification serverError={true} apearNotice={true} />
     )}

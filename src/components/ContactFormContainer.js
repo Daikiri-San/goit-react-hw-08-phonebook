@@ -20,14 +20,17 @@ class ContactFormContainer extends Component {
         apearNotice: true,
       });
 
-      return setTimeout(
+      setTimeout(
         () =>
           this.setState({
             apearNotice: false,
           }),
-        2400,
+        2600,
       );
+
+      return false;
     }
+
     const numberCheck = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/g;
     const checkedNumber = numberCheck.test(number);
     if (!checkedNumber) {
@@ -35,13 +38,14 @@ class ContactFormContainer extends Component {
         notice: 'Hey! This is not a real number :)',
         apearNotice: true,
       });
-      return setTimeout(
+      setTimeout(
         () =>
           this.setState({
             apearNotice: false,
           }),
-        2400,
+        2600,
       );
+      return false;
     }
     const newContact = {
       name,
