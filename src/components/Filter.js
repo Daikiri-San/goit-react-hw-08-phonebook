@@ -4,15 +4,17 @@ import { CSSTransition } from 'react-transition-group';
 import scaleTransition from './transitions/scale.module.css';
 
 const Container = styled.div`
+  border-radius: 2.2rem;
   margin: 0 auto 3rem;
   max-width: 48rem;
   box-shadow: ${props => props.shadow};
   padding: 2rem;
-  background-color: snow;
+  background-color: #dae3ff;
 `;
 
 const Label = styled.label`
   font-size: 2rem;
+  font-weight: 500;
   cursor: pointer;
 `;
 
@@ -21,8 +23,9 @@ const Input = styled.input`
   font-size: 1.8rem;
   width: 100%;
   margin-top: 0.2rem;
-  padding: 1.2rem 1rem 1rem;
-  border-radius: 0.6rem;
+  padding: 1.2rem 1.6rem 1rem;
+  border-radius: 3rem;
+  border: 0.2rem solid snow;
   background-color: ${props => props.backGroundColor};
 
   &:focus {

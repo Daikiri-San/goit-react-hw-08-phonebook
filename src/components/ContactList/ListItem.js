@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const Item = styled.li`
   box-shadow: ${props => props.shadow};
-  padding: 1.6rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,13 +18,15 @@ const Item = styled.li`
 `;
 
 const Name = styled.p`
-  font-size: 1.8rem;
+  font-size: 2rem;
   flex-basis: 52%;
+  font-weight: 500;
 `;
 
 const Number = styled.p`
   font-size: 1.8rem;
   flex-basis: 36%;
+  font-weight: 500;
 `;
 
 const Button = styled.button`
@@ -33,16 +36,17 @@ const Button = styled.button`
   flex-basis: 8%;
   height: 3.8rem;
   width: 3.8rem;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   background-color: #e82a2a;
   cursor: pointer;
   color: snow;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
 
   &:hover,
   &:focus {
     background-color: #b80000;
     outline: none;
+    transform: rotate(0.5turn);
   }
 
   &:active {

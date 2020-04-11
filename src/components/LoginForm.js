@@ -9,16 +9,19 @@ import Notification from './Notification';
 const Form = styled.form`
   max-width: 46rem;
   box-shadow: ${props => props.shadow};
+  border-radius: 6%;
   padding: 3.6rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  background-color: snow;
+  background-color: #dae3ff;
 `;
 
 const Label = styled.label`
   position: relative;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-family: 'Philosopher', sans-serif;
+  transition: all 0.1s linear;
   cursor: pointer;
   ${props =>
     props.error &&
@@ -32,10 +35,10 @@ const Input = styled.input`
   font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 1.2rem 1rem 1rem;
-  border-radius: 0.6rem;
-  border: 0.2rem solid '#e0e0e0';
-  background-color: ${props => props.backGroundColor};
+  padding: 1.2rem 1.6rem 1rem;
+  border-radius: 3rem;
+  border: 0.2rem solid snow;
+  background-color: snow;
 
   &:focus {
     border-color: #1d2bcc;
@@ -56,6 +59,7 @@ const Input = styled.input`
 const Button = styled.button`
   display: block;
   font-size: 1.8rem;
+  font-weight: 500;
   margin: 1.4rem auto 0;
   width: 14rem;
   padding: 1.6rem;
@@ -157,7 +161,6 @@ function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {
                   error
                   type="email"
                   name="email"
-                  backGroundColor={theme.config.inputColor}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
@@ -172,7 +175,6 @@ function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {
                     isValid
                     type="email"
                     name="email"
-                    backGroundColor={theme.config.inputColor}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
@@ -181,7 +183,6 @@ function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {
                   <Input
                     type="email"
                     name="email"
-                    backGroundColor={theme.config.inputColor}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
@@ -196,7 +197,6 @@ function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {
               <Input
                 type="password"
                 name="password"
-                backGroundColor={theme.config.inputColor}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}

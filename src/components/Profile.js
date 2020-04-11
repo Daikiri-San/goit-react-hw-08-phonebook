@@ -6,6 +6,7 @@ import withThemeContext from './hoc/withTheme';
 import Modal from './Modals/ModalDelete';
 
 const Container = styled.div`
+  border-radius: 6%;
   box-shadow: ${props => props.shadow};
   padding: 4rem 2rem;
   display: flex;

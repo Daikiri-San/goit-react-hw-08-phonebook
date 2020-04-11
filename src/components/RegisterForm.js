@@ -10,16 +10,19 @@ const Form = styled.form`
   margin-bottom: 3.4rem;
   max-width: 46rem;
   box-shadow: ${props => props.shadow};
+  border-radius: 6%;
   padding: 3.6rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  background-color: snow;
+  background-color: #dae3ff;
 `;
 
 const Label = styled.label`
   position: relative;
   font-size: 2rem;
+  font-family: 'Philosopher', sans-serif;
+  transition: all 0.1s linear;
   cursor: pointer;
   ${props =>
     props.error &&
@@ -33,9 +36,9 @@ const Input = styled.input`
   font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 1.2rem 1rem 1rem;
-  border-radius: 0.6rem;
-  border: 0.2rem solid '#e0e0e0';
+  padding: 1.2rem 1.6rem 1rem;
+  border-radius: 3rem;
+  border: 0.2rem solid snow;
   background-color: ${props => props.backGroundColor};
 
   &:focus {
@@ -57,6 +60,7 @@ const Input = styled.input`
 const Button = styled.button`
   display: block;
   font-size: 1.8rem;
+  font-weight: 500;
   margin: 1.4rem auto 0;
   width: 14rem;
   padding: 1.6rem;
@@ -89,6 +93,7 @@ const ErrorText = styled.div`
 
 const HelpText = styled.span`
   font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const LinkContainer = styled.div`

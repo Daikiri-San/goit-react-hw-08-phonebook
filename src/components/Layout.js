@@ -10,7 +10,7 @@ import Spinner from './Spinner';
 const Background = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${props => props.color};
+  background: ${props => props.color};
 `;
 
 const Container = styled.div`

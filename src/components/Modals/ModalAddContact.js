@@ -5,7 +5,8 @@ import { Formik } from 'formik';
 import withThemeContext from '../hoc/withTheme';
 
 const ModalContainer = styled.div`
-  background-color: snow;
+  border-radius: 2rem;
+  background-color: #dae3ff;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -13,11 +14,13 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  outline: none;
 `;
 
 const ButtonAdd = styled.button`
   display: block;
   font-size: 1.8rem;
+  font-weight: 500;
   position: absolute;
   top: 1rem;
   left: -12rem;
@@ -48,6 +51,8 @@ const CloseButton = styled.button`
   margin-left: auto;
   border: none;
   font-size: 3rem;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 1rem;
   flex-basis: 8%;
   height: 3.8rem;
   width: 3.8rem;
@@ -73,12 +78,16 @@ const Form = styled.form`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  background-color: snow;
+  background-color: #dae3ff;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 `;
 
 const Label = styled.label`
   position: relative;
   font-size: 2rem;
+  font-family: 'Philosopher', sans-serif;
+  transition: all 0.1s linear;
   cursor: pointer;
   ${props =>
     props.error &&
@@ -92,10 +101,10 @@ const Input = styled.input`
   font-size: 1.8rem;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 1.2rem 1rem 1rem;
-  border-radius: 0.6rem;
-  border: 0.2rem solid '#e0e0e0';
-  background-color: ${props => props.backGroundColor};
+  padding: 1.2rem 1.6rem 1rem;
+  border-radius: 3rem;
+  border: 0.2rem solid snow;
+  background-color: snow;
 
   &:focus {
     border-color: #1d2bcc;
@@ -113,35 +122,14 @@ const Input = styled.input`
     `}
 `;
 
-const Button = styled.button`
-  display: block;
-  font-size: 1.6rem;
+const ModalButtonAdd = styled(ButtonAdd)`
+  position: static;
   margin: 0 auto;
-  width: 60%;
-  padding: 1.6rem;
-  border-radius: 1rem;
-  background-color: #1d2bcc;
-  cursor: pointer;
-  color: snow;
-  transition: all 0.2s ease;
-
-  &:hover,
-  &:focus {
-    background-color: #404fff;
-    color: snow;
-    border-color: #404fff;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    outline: none;
-  }
-
-  &:active {
-    background-color: #7883ff;
-  }
 `;
 
 const ErrorText = styled.div`
   position: absolute;
-  top: 7.2rem;
+  top: 6.8rem;
   color: red;
   font-size: 1.6rem;
 `;
@@ -265,9 +253,9 @@ class ModalWindow extends Component {
                     />
                     {errors.number && touched.number && errors.number}
                   </Label>
-                  <Button type="submit" disabled={isSubmitting}>
+                  <ModalButtonAdd type="submit" disabled={isSubmitting}>
                     Add contact
-                  </Button>
+                  </ModalButtonAdd>
                 </Form>
               )}
             </Formik>

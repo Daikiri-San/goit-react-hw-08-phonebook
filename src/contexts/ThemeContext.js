@@ -2,20 +2,23 @@ import React, { Component, createContext } from 'react';
 
 const themeConfig = {
   light: {
-    mainBGColor: 'snow',
+    mainBGColor:
+      'linear-gradient(90deg, #00e842 0%, #57ff87 50%, #00e842 100%)',
+    headerBGColor:
+      'linear-gradient(90deg, #a4ff4d 0%, #00e842 50%, #a4ff4d 100%)',
     contentColor: '#1d2bcc',
     mainShadowBox: '0px 4px 10px -3px rgba(0, 0, 0, 0.75)',
     linkColor: '#1d2bcc',
-    inputColor: 'snow',
     messageColor: 'black',
   },
 
   dark: {
-    mainBGColor: '#333333',
+    mainBGColor: 'linear-gradient(90deg, #232526 0%, #414345 100%)',
+    headerBGColor:
+      'linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
     contentColor: '#ccc',
     mainShadowBox: '0px 4px 10px -3px rgba(255, 255, 255, 0.75)',
     linkColor: '#00d0ff',
-    inputColor: '#e0e0e0',
     messageColor: '#ccc',
   },
 };
