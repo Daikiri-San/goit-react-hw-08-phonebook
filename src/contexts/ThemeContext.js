@@ -3,7 +3,7 @@ import React, { Component, createContext } from 'react';
 const themeConfig = {
   light: {
     mainBGColor:
-      'linear-gradient(90deg, #00e842 0%, #57ff87 50%, #00e842 100%)',
+      'linear-gradient(90deg, #41e06e 0%, #b0ffc7 50%, #41e06e 100%)',
     headerBGColor:
       'linear-gradient(90deg, #a4ff4d 0%, #00e842 50%, #a4ff4d 100%)',
     contentColor: '#1d2bcc',
