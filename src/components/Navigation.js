@@ -127,6 +127,7 @@ const MobileLogOut = styled.p`
   min-width: 14rem;
   padding: 1rem;
   color: #333333;
+  cursor: pointer;
   text-align: center;
   margin-left: none;
   background: ${props => props.background};
