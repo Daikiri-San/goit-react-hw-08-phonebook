@@ -18,15 +18,23 @@ const Text = styled.p`
   margin: 0 auto;
   color: snow;
   padding: 1.4rem;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
+
+  @media screen and (min-width: 30em) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 2.2rem;
+  }
 `;
 
 const Button = styled.button`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 1.8rem;
-  width: 17rem;
+  font-size: 1.6rem;
+  width: 14rem;
   margin: 0 auto 1rem;
   padding: 1rem 1.2rem;
   border: none;
@@ -46,6 +54,11 @@ const Button = styled.button`
 
   &:active {
     background-color: #7883ff;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 1.8rem;
+    width: 17rem;
   }
 `;
 

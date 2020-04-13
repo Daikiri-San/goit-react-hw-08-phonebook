@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Item = styled.li`
   box-shadow: ${props => props.shadow};
-  padding: 1.4rem 1.6rem;
+  padding: 1rem 1.4rem;
   border-radius: 1.6rem;
   display: flex;
   justify-content: space-between;
@@ -15,25 +15,46 @@ const Item = styled.li`
   &:last-of-type {
     margin-bottom: none;
   }
+
+  @media screen and (min-width: 30em) {
+    padding: 1.2rem 1.4rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    padding: 1.4rem 1.6rem;
+  }
 `;
 
 const Name = styled.p`
-  font-size: 2rem;
-  flex-basis: 52%;
+  font-size: 1.8rem;
+  flex-basis: 48%;
   font-weight: 500;
+
+  @media screen and (min-width: 30em) {
+    flex-basis: 50%;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 2rem;
+    flex-basis: 52%;
+  }
 `;
 
 const Number = styled.p`
-  font-size: 1.8rem;
-  flex-basis: 36%;
+  font-size: 1.6rem;
+  flex-basis: 34%;
   font-weight: 500;
+
+  @media screen and (min-width: 48em) {
+    font-size: 1.8rem;
+    flex-basis: 36%;
+  }
 `;
 
 const Button = styled.button`
   display: inline-block;
   border: none;
   font-size: 3rem;
-  flex-basis: 8%;
   height: 3.8rem;
   width: 3.8rem;
   border-radius: 1rem;

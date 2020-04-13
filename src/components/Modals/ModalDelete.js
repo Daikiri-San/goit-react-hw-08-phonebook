@@ -32,7 +32,7 @@ const Button = styled.button`
   justify-content: space-evenly;
   align-items: center;
   font-size: 1.8rem;
-  margin: 1.4rem auto 0;
+  margin: auto 0;
   width: 17rem;
   padding: 1rem 1.2rem;
   border: none;

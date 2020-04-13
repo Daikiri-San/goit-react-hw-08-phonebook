@@ -15,11 +15,19 @@ const Container = styled.div`
 const Greetings = styled.p`
   display: inline-block;
   font-family: 'Philosopher', sans-serif;
-  font-size: 4rem;
+  font-size: 2.2rem;
   color: ${props => props.color};
 
-  &:first-of-type {
-    margin-top: 5rem;
+  @media screen and (min-width: 30em) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 3.4rem;
+  }
+
+  @media screen and (min-width: 64em) {
+    font-size: 4rem;
   }
 `;
 

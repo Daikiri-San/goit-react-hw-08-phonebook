@@ -19,13 +19,13 @@ const ModalContainer = styled.div`
 
 const ButtonAdd = styled.button`
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 500;
   position: absolute;
-  top: 1rem;
-  left: -12rem;
-  width: 14rem;
-  padding: 1.6rem;
+  top: -5rem;
+  left: 1rem;
+  width: 12rem;
+  padding: 1.4rem;
   border: none;
   border-radius: 1rem;
   background-color: #4a69cf;
@@ -43,6 +43,22 @@ const ButtonAdd = styled.button`
 
   &:active {
     background-color: #7883ff;
+  }
+
+  @media screen and (min-width: 30em) {
+    padding: 1.4rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    top: 1rem;
+    left: -11rem;
+    font-size: 1.8rem;
+    width: 14rem;
+    padding: 1.6rem;
+  }
+
+  @media screen and (min-width: 60em) {
+    left: -13rem;
   }
 `;
 
@@ -73,19 +89,33 @@ const CloseButton = styled.button`
 `;
 
 const Form = styled.form`
-  max-width: 46rem;
-  padding: 0 3.6rem 2.6rem;
+  width: 28rem;
+  padding: 0 2rem 2rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   background-color: #dae3ff;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
+
+  @media screen and (min-width: 26em) {
+    width: 34rem;
+  }
+
+  @media screen and (min-width: 30em) {
+    padding: 0 2.6rem 2.6rem;
+    width: 40rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    padding: 0 3.6rem 2.6rem;
+    width: 46rem;
+  }
 `;
 
 const Label = styled.label`
   position: relative;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Philosopher', sans-serif;
   transition: all 0.1s linear;
   cursor: pointer;
@@ -94,14 +124,22 @@ const Label = styled.label`
     css`
       color: red;
     `}
+
+  @media screen and (min-width: 30em) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 2.2rem;
+  }
 `;
 
 const Input = styled.input`
   outline: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   width: 100%;
-  margin-bottom: 2rem;
-  padding: 1.2rem 1.6rem 1rem;
+  margin-bottom: 1.6rem;
+  padding: 1rem;
   border-radius: 3rem;
   border: 0.2rem solid snow;
   background-color: snow;
@@ -120,6 +158,17 @@ const Input = styled.input`
     css`
       border: 0.2rem solid red;
     `}
+
+    @media screen and (min-width: 30em) {
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
+    padding: 1.2rem 1.4rem 1rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.6rem 1rem;
+  }
 `;
 
 const ModalButtonAdd = styled(ButtonAdd)`
@@ -129,9 +178,18 @@ const ModalButtonAdd = styled(ButtonAdd)`
 
 const ErrorText = styled.div`
   position: absolute;
-  top: 6.8rem;
+  top: 6rem;
   color: red;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+
+  @media screen and (min-width: 30em) {
+    top: 6.4rem;
+    font-size: 1.6rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    top: 6.8rem;
+  }
 `;
 
 class ModalWindow extends Component {

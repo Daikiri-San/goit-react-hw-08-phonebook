@@ -2,14 +2,14 @@ import React, { Component, createContext } from 'react';
 
 const themeConfig = {
   light: {
-    mainBGColor:
-      'linear-gradient(90deg, #41e06e 0%, #b0ffc7 50%, #41e06e 100%)',
+    mainBGColor: 'linear-gradient(90deg, #dae3ff 0%, snow 50%, #dae3ff 100%)',
     headerBGColor:
-      'linear-gradient(90deg, #a4ff4d 0%, #00e842 50%, #a4ff4d 100%)',
+      'linear-gradient(90deg, #41e06e 0%, #91ffb1 50%, #41e06e 100%)',
     contentColor: '#1d2bcc',
     mainShadowBox: '0px 4px 10px -3px rgba(0, 0, 0, 0.75)',
     linkColor: '#1d2bcc',
     messageColor: 'black',
+    mobileMenu: 'linear-gradient(90deg, #ffd1d1 0%, snow 50%, #ffd1d1 100%)',
   },
 
   dark: {
@@ -20,6 +20,7 @@ const themeConfig = {
     mainShadowBox: '0px 4px 10px -3px rgba(255, 255, 255, 0.75)',
     linkColor: '#00d0ff',
     messageColor: '#ccc',
+    mobileMenu: 'linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
   },
 };
 

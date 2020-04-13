@@ -10,12 +10,38 @@ const SwitchThemeItem = styled.div`
   margin-left: auto;
 `;
 
+const MySunIcon = styled(Brightness5Icon)`
+  position: absolute;
+  left: 2.3rem;
+  color: #ffe100;
+  top: -1.1rem;
+  z-index: 20;
+  transition: all 0.2s linear;
+  pointer-events: none;
+`;
+
+const MyDarkIcon = styled(Brightness4Icon)`
+  position: absolute;
+  left: 4.6rem;
+  top: -1.1rem;
+  z-index: 20;
+  transition: all 0.2s linear;
+  pointer-events: none;
+`;
+
 const LabelOfSwitch = styled.span`
   position: relative;
-  padding: 0px 10px;
-  font-size: 2.4rem;
+  padding: 0 1rem;
+  font-size: 1.8rem;
   font-weight: 500;
   color: ${props => props.color};
+
+  @media screen and (min-width: 30em) {
+    font-size: 2rem;
+  }
+  @media screen and (min-width: 48em) {
+    font-size: 2.4rem;
+  }
 `;
 
 const Label = styled.label`
@@ -70,11 +96,10 @@ const Slider = styled.span`
 const ThemeSwitcher = ({ theme }) => (
   <SwitchThemeItem>
     <LabelOfSwitch color={theme.config.contentColor}>
-      Theme:{' '}
       {theme.theme === 'light' ? (
-        <Brightness5Icon color="primary" fontSize="large" />
+        <MySunIcon fontSize="large" />
       ) : (
-        <Brightness4Icon color="secondary" fontSize="large" />
+        <MyDarkIcon color="primary" fontSize="large" />
       )}
     </LabelOfSwitch>
     <Label>

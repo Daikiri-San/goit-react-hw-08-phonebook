@@ -7,19 +7,28 @@ import routesPaths from '../routesPaths';
 import Notification from './Notification';
 
 const Form = styled.form`
+  margin: 0 auto 3.4rem;
   max-width: 46rem;
   box-shadow: ${props => props.shadow};
   border-radius: 6%;
-  padding: 3.6rem;
+  padding: 2rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   background-color: #dae3ff;
+
+  @media screen and (min-width: 30em) {
+    padding: 2.6rem 3rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    padding: 3.6rem;
+  }
 `;
 
 const Label = styled.label`
   position: relative;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-family: 'Philosopher', sans-serif;
   transition: all 0.1s linear;
   cursor: pointer;
@@ -28,14 +37,22 @@ const Label = styled.label`
     css`
       color: red;
     `}
+
+  @media screen and (min-width: 30em) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 2.2rem;
+  }
 `;
 
 const Input = styled.input`
   outline: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   width: 100%;
-  margin-bottom: 2rem;
-  padding: 1.2rem 1.6rem 1rem;
+  margin-bottom: 1.6rem;
+  padding: 1rem;
   border-radius: 3rem;
   border: 0.2rem solid snow;
   background-color: snow;
@@ -54,15 +71,26 @@ const Input = styled.input`
     css`
       border: 0.2rem solid red;
     `}
+
+    @media screen and (min-width: 30em) {
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
+    padding: 1.2rem 1.4rem 1rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.6rem 1rem;
+  }
 `;
 
 const Button = styled.button`
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  margin: 1.4rem auto 0;
-  width: 14rem;
-  padding: 1.6rem;
+  margin: 0 auto;
+  width: 10rem;
+  padding: 1.4rem;
   border: none;
   border-radius: 1rem;
   background-color: #4a69cf;
@@ -81,19 +109,39 @@ const Button = styled.button`
   &:active {
     background-color: #7883ff;
   }
+
+  @media screen and (min-width: 30em) {
+    width: 12rem;
+    padding: 1.4rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    font-size: 1.8rem;
+    width: 14rem;
+    padding: 1.6rem;
+  }
 `;
 
 const ErrorText = styled.div`
   position: absolute;
-  top: 7.2rem;
+  top: 6rem;
   color: red;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+
+  @media screen and (min-width: 30em) {
+    top: 6.8rem;
+    font-size: 1.6rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    top: 7.2rem;
+  }
 `;
 
 const MyLink = styled(Link)`
   color: #1d2bcc;
   transition: color 0.2s linear;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-family: 'Philosopher', sans-serif;
 
   &:hover,
@@ -104,11 +152,19 @@ const MyLink = styled(Link)`
   &:active {
     color: red;
   }
+
+  @media screen and (min-width: 48em) {
+    font-size: 2.2rem;
+  }
 `;
 
 const LinkContainer = styled.div`
   display: inline-block;
-  margin: 2rem auto 0;
+  margin: 1.2rem auto 0;
+
+  @media screen and (min-width: 48em) {
+    margin: 2rem auto 0;
+  }
 `;
 
 function LoginForm({ notice, apearNotice, theme, logIn, hasError }) {

@@ -6,9 +6,11 @@ import withThemeContext from './hoc/withTheme';
 import Modal from './Modals/ModalDelete';
 
 const Container = styled.div`
+  max-width: 28rem;
+  margin: 0 auto;
   border-radius: 6%;
   box-shadow: ${props => props.shadow};
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,21 +21,32 @@ const Container = styled.div`
 const Avatar = styled.img.attrs({
   alt: '',
 })`
-  margin-right: 0.4rem;
   max-width: 70%;
   height: auto;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 30em) {
+    margin-bottom: 3rem;
+  }
 `;
 
 const User = styled.span`
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-right: 1.2rem;
+  margin: 0 auto;
   margin-bottom: 0.2rem;
   color: #333333;
 
   &:last-of-type {
     margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 30em) {
+    font-size: 2.4rem;
+
+    &:last-of-type {
+      margin-bottom: 3.6rem;
+    }
   }
 `;
 

@@ -10,12 +10,14 @@ import Spinner from './Spinner';
 const Background = styled.div`
   width: 100%;
   height: 100vh;
+  min-width: 32rem;
   background: ${props => props.color};
 `;
 
 const Container = styled.div`
   margin: 0 auto;
   max-width: 56rem;
+  padding: 0 2rem;
 `;
 
 const Layout = ({ children, theme, hasError, isLoading }) => (
