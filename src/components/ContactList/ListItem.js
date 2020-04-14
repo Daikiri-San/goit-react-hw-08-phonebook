@@ -52,12 +52,15 @@ const Number = styled.p`
 `;
 
 const Button = styled.button`
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   font-size: 3rem;
   margin-left: 0.4rem;
   flex-basis: 12%;
-  height: 3.8rem;
+  max-height: 3.8rem;
+  min-height: 3.8rem;
   max-width: 3.8rem;
   min-width: 3.8rem;
   border-radius: 1rem;
