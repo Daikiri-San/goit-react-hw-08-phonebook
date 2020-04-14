@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Item = styled.li`
   box-shadow: ${props => props.shadow};
@@ -52,24 +53,25 @@ const Number = styled.p`
 `;
 
 const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   border: none;
   font-size: 3rem;
   margin-left: 0.4rem;
-  padding: 0.2rem 1rem;
-  border-radius: 1rem;
+  max-width: 4.4rem;
+  min-width: 4.4rem;
+  max-height: 4.4rem;
+  min-height: 4.4rem;
+  border-radius: 0.8rem;
   background-color: #e82a2a;
   cursor: pointer;
   color: snow;
-  transition: all 0.4s ease;
+  transition: all 0.8s ease;
 
   &:hover,
   &:focus {
     background-color: #b80000;
     outline: none;
-    transform: rotate(0.5turn);
+    transform: rotate(1turn);
   }
 
   &:active {
@@ -91,7 +93,7 @@ function ListItem({ name, number, onRemoveContact, theme }) {
     <Item shadow={theme.config.mainShadowBox}>
       <Name>{viewName}</Name> <Number>{viewNumber}</Number>
       <Button type="button" onClick={onRemoveContact}>
-        ×
+        <DeleteIcon fontSize="large" />{' '}
       </Button>
     </Item>
   );
