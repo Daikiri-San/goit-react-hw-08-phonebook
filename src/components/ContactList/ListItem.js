@@ -58,11 +58,7 @@ const Button = styled.button`
   border: none;
   font-size: 3rem;
   margin-left: 0.4rem;
-  flex-basis: 12%;
-  max-height: 3.8rem;
-  min-height: 3.8rem;
-  max-width: 3.8rem;
-  min-width: 3.8rem;
+  padding: 0.2rem 1rem;
   border-radius: 1rem;
   background-color: #e82a2a;
   cursor: pointer;
