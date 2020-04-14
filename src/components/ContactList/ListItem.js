@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DeleteIcon from '@material-ui/icons/Delete';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Item = styled.li`
   box-shadow: ${props => props.shadow};
@@ -53,14 +53,16 @@ const Number = styled.p`
 `;
 
 const Button = styled.button`
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   font-size: 3rem;
   margin-left: 0.4rem;
-  max-width: 4.4rem;
-  min-width: 4.4rem;
-  max-height: 4.4rem;
-  min-height: 4.4rem;
+  max-width: 4rem;
+  min-width: 4rem;
+  max-height: 4rem;
+  min-height: 4rem;
   border-radius: 0.8rem;
   background-color: #e82a2a;
   cursor: pointer;
@@ -93,7 +95,7 @@ function ListItem({ name, number, onRemoveContact, theme }) {
     <Item shadow={theme.config.mainShadowBox}>
       <Name>{viewName}</Name> <Number>{viewNumber}</Number>
       <Button type="button" onClick={onRemoveContact}>
-        <DeleteIcon fontSize="large" />{' '}
+        <CloseIcon fontSize="large" />{' '}
       </Button>
     </Item>
   );
