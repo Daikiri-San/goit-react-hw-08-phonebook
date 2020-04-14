@@ -8,12 +8,12 @@ const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background-color: snow;
   margin-bottom: 0.6rem;
 
   &:last-of-type {
-    margin-bottom: none;
+    margin-bottom: 0;
   }
 
   @media screen and (min-width: 30em) {
@@ -55,8 +55,11 @@ const Button = styled.button`
   display: inline-block;
   border: none;
   font-size: 3rem;
+  margin-left: 0.4rem;
+  flex-basis: 12%;
   height: 3.8rem;
-  width: 3.8rem;
+  max-width: 3.8rem;
+  min-width: 3.8rem;
   border-radius: 1rem;
   background-color: #e82a2a;
   cursor: pointer;
@@ -76,9 +79,18 @@ const Button = styled.button`
 `;
 
 function ListItem({ name, number, onRemoveContact, theme }) {
+  let viewName = name;
+  let viewNumber = number;
+  if (name) {
+    viewName = name.length > 12 ? `${name.slice(0, 12)}...` : name;
+  }
+  if (number) {
+    viewNumber = number.length > 17 ? `${number.slice(0, 17)}...` : number;
+  }
+
   return (
     <Item shadow={theme.config.mainShadowBox}>
-      <Name>{name}</Name> <Number>{number}</Number>
+      <Name>{viewName}</Name> <Number>{viewNumber}</Number>
       <Button type="button" onClick={onRemoveContact}>
         ×
       </Button>

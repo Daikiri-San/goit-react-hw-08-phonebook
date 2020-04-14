@@ -9,7 +9,7 @@ import Spinner from './Spinner';
 
 const Background = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   min-width: 32rem;
   background: ${props => props.color};
 `;

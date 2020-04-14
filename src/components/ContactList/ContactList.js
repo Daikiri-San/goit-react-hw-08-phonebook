@@ -9,6 +9,7 @@ import slideItemTransition from '../transitions/slideItem.module.css';
 const Container = styled.div`
   margin: 0 auto;
   max-width: 44rem;
+  padding-bottom: 2rem;
 
   @media screen and (min-width: 60em) {
     max-width: 48rem;
