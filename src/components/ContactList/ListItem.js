@@ -67,13 +67,13 @@ const Button = styled.button`
   background-color: #e82a2a;
   cursor: pointer;
   color: snow;
-  transition: all 0.8s ease;
+  transition: all 0.4s ease;
 
   &:hover,
   &:focus {
     background-color: #b80000;
     outline: none;
-    transform: rotate(1turn);
+    transform: rotate(0.5turn);
   }
 
   &:active {
