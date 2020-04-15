@@ -29,6 +29,7 @@ const Container = styled.div`
 const Label = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
+  font-family: 'Philosopher', sans-serif;
   cursor: pointer;
 
   @media screen and (min-width: 30em) {
@@ -69,7 +70,7 @@ function Filter({ value, onChangeFilter, theme, appear }) {
     >
       <Container shadow={theme.config.mainShadowBox}>
         <Label>
-          Find contacts by name
+          Find contacts
           <Input
             backGroundColor={theme.config.inputColor}
             type="text"
