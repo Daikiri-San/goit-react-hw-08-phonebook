@@ -36,7 +36,7 @@ export default [
     label: 'Profile',
     exact: false,
     component: lazy(() =>
-      import('./views/ProfilePage' /* webpackChunkName: "contacts-page" */),
+      import('./views/ProfilePage' /* webpackChunkName: "profile-page" */),
     ),
     private: true,
     restricted: false,
