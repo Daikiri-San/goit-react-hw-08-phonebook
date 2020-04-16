@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import TextNotification from '../TextNotification';
 import ListItem from './ListItemContainer';
 import slideItemTransition from '../transitions/slideItem.module.css';
+import slideListTransition from '../transitions/slideList.module.css';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -33,19 +34,26 @@ function ContactList({ contacts, visibleContacts, appear }) {
     <>
       {contacts.length < 2 ? (
         <AlternativeContainer>
-          <TransitionGroup component={List}>
-            {visibleContacts.map(({ id }) => (
-              <CSSTransition
-                key={id}
-                timeout={250}
-                classNames={slideItemTransition}
-                in={appear}
-                unmountOnExit
-              >
-                <ListItem id={id} />
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
+          <CSSTransition
+            timeout={500}
+            classNames={{ ...slideListTransition }}
+            in={true}
+            appear
+          >
+            <TransitionGroup component={List}>
+              {visibleContacts.map(({ id }) => (
+                <CSSTransition
+                  key={id}
+                  timeout={250}
+                  classNames={slideItemTransition}
+                  in={appear}
+                  unmountOnExit
+                >
+                  <ListItem id={id} />
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
+          </CSSTransition>
           {contacts.length === 0 && (
             <TextNotification message={'You have no contacts. Add some :)'} />
           )}
@@ -55,19 +63,26 @@ function ContactList({ contacts, visibleContacts, appear }) {
         </AlternativeContainer>
       ) : (
         <Container>
-          <TransitionGroup component={List}>
-            {visibleContacts.map(({ id }) => (
-              <CSSTransition
-                key={id}
-                timeout={250}
-                classNames={slideItemTransition}
-                in={appear}
-                unmountOnExit
-              >
-                <ListItem id={id} />
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
+          <CSSTransition
+            timeout={500}
+            classNames={{ ...slideListTransition }}
+            in={true}
+            appear
+          >
+            <TransitionGroup component={List}>
+              {visibleContacts.map(({ id }) => (
+                <CSSTransition
+                  key={id}
+                  timeout={250}
+                  classNames={slideItemTransition}
+                  in={appear}
+                  unmountOnExit
+                >
+                  <ListItem id={id} />
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
+          </CSSTransition>
           {contacts.length === 0 && (
             <TextNotification message={'You have no contacts. Add some :)'} />
           )}
